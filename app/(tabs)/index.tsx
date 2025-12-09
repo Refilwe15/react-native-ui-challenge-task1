@@ -10,11 +10,36 @@ import {
 } from "react-native";
 
 const contacts = [
-  { name: "Phillip", img: require("../../assets/images/profile1.png") },
-  { name: "Alfredo", img: require("../../assets/images/profile2.png") },
-  { name: "Jaylon", img: require("../../assets/images/profile3.png") },
-  { name: "Tatiana", img: require("../../assets/images/profile4.png") },
-  { name: "Terry", img: require("../../assets/images/profile5.png") },
+  {
+    name: "Phillip",
+    img: {
+      uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300",
+    },
+  },
+  {
+    name: "Alfredo",
+    img: {
+      uri: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=300",
+    },
+  },
+  {
+    name: "Jaylon",
+    img: {
+      uri: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300",
+    },
+  },
+  {
+    name: "Tatiana",
+    img: {
+      uri: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300",
+    },
+  },
+  {
+    name: "Terry",
+    img: {
+      uri: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300",
+    },
+  },
 ];
 
 const pinned = [
@@ -22,13 +47,17 @@ const pinned = [
     name: "Phillip Franci",
     message: "Hey, it's been a while since we...",
     time: "10:00 am",
-    img: require("../../assets/images/profile1.png"),
+    img: {
+      uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300",
+    },
   },
   {
     name: "Alfredo Saris",
     message: "Hello, Good Morning Bro!",
     time: "08:00 am",
-    img: require("../../assets/images/profile2.png"),
+    img: {
+      uri: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=300",
+    },
   },
 ];
 
@@ -37,19 +66,25 @@ const messages = [
     name: "Jaylon Franci",
     message: "Everything's good.",
     time: "08:30 am",
-    img: require("../../assets/images/profile3.png"),
+    img: {
+      uri: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300",
+    },
   },
   {
     name: "Tatiana Dorwart",
     message: "Okay Thanks!",
     time: "06:10 am",
-    img: require("../../assets/images/profile4.png"),
+    img: {
+      uri: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300",
+    },
   },
   {
     name: "Terry Bergson",
     message: "Same here!",
     time: "05:40 am",
-    img: require("../../assets/images/profile5.png"),
+    img: {
+      uri: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300",
+    },
   },
 ];
 
