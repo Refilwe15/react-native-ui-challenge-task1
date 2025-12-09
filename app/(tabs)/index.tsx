@@ -1,98 +1,194 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+const contacts = [
+  { name: "Phillip", img: require("../../assets/images/profile1.png") },
+  { name: "Alfredo", img: require("../../assets/images/profile2.png") },
+  { name: "Jaylon", img: require("../../assets/images/profile3.png") },
+  { name: "Tatiana", img: require("../../assets/images/profile4.png") },
+  { name: "Terry", img: require("../../assets/images/profile5.png") },
+];
 
-export default function HomeScreen() {
+const pinned = [
+  {
+    name: "Phillip Franci",
+    message: "Hey, it's been a while since we...",
+    time: "10:00 am",
+    img: require("../../assets/images/profile1.png"),
+  },
+  {
+    name: "Alfredo Saris",
+    message: "Hello, Good Morning Bro!",
+    time: "08:00 am",
+    img: require("../../assets/images/profile2.png"),
+  },
+];
+
+const messages = [
+  {
+    name: "Jaylon Franci",
+    message: "Everything's good.",
+    time: "08:30 am",
+    img: require("../../assets/images/profile3.png"),
+  },
+  {
+    name: "Tatiana Dorwart",
+    message: "Okay Thanks!",
+    time: "06:10 am",
+    img: require("../../assets/images/profile4.png"),
+  },
+  {
+    name: "Terry Bergson",
+    message: "Same here!",
+    time: "05:40 am",
+    img: require("../../assets/images/profile5.png"),
+  },
+];
+
+export default function App() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <View style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.header}>
+          <Text style={styles.smallText}>Hi, Arip!</Text>
+          <Text style={styles.smallText}>You Received</Text>
+          <Text style={styles.bigText}>48 Messages</Text>
+          <Text style={[styles.smallText, { marginTop: 15 }]}>
+            Contact List
+          </Text>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={{ marginTop: 10 }}
+          >
+            {contacts.map((item, index) => (
+              <View style={styles.contactContainer} key={index}>
+                <Image source={item.img} style={styles.contactImg} />
+                <Text style={styles.contactName}>{item.name}</Text>
+              </View>
+            ))}
+          </ScrollView>
+        </View>
+
+        <View style={styles.whiteSection}>
+          <View style={styles.tabsRow}>
+            <Ionicons name="search" size={20} color="black" />
+            <TouchableOpacity style={styles.activeTab}>
+              <Text style={styles.activeTabText}>Direct Message</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.tab}>
+              <Text style={styles.tabText}>Group</Text>
+            </TouchableOpacity>
+          </View>
+
+          <Text style={styles.sectionTitle}>Pinned Message (2)</Text>
+
+          {pinned.map((msg, index) => (
+            <View style={styles.messageRow} key={index}>
+              <Image source={msg.img} style={styles.msgImg} />
+              <View style={{ flex: 1 }}>
+                <Text style={styles.msgName}>{msg.name}</Text>
+                <Text style={styles.msgText}>{msg.message}</Text>
+              </View>
+              <View style={{ alignItems: "flex-end" }}>
+                <Text style={styles.msgTime}>{msg.time}</Text>
+                <Ionicons name="checkmark-done" size={18} color="#6C63FF" />
+              </View>
+            </View>
+          ))}
+
+          <Text style={styles.sectionTitle}>All Message (8)</Text>
+
+          {messages.map((msg, index) => (
+            <View style={styles.messageRow} key={index}>
+              <Image source={msg.img} style={styles.msgImg} />
+              <View style={{ flex: 1 }}>
+                <Text style={styles.msgName}>{msg.name}</Text>
+                <Text style={styles.msgText}>{msg.message}</Text>
+              </View>
+              <View style={{ alignItems: "flex-end" }}>
+                <Text style={styles.msgTime}>{msg.time}</Text>
+                <Ionicons name="checkmark-done" size={18} color="#6C63FF" />
+              </View>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+
+      <TouchableOpacity style={styles.fab}>
+        <Ionicons name="add" size={28} color="white" />
+      </TouchableOpacity>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: { flex: 1, backgroundColor: "#EDEEF7" },
+  header: {
+    backgroundColor: "#6C63FF",
+    paddingTop: 50,
+    paddingBottom: 30,
+    paddingHorizontal: 20,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  smallText: { color: "white", fontSize: 14 },
+  bigText: { color: "white", fontSize: 28, fontWeight: "bold" },
+  contactContainer: { alignItems: "center", marginRight: 20 },
+  contactImg: { width: 55, height: 55, borderRadius: 30 },
+  contactName: { color: "white", marginTop: 5, fontSize: 12 },
+  whiteSection: {
+    marginTop: -20,
+    backgroundColor: "white",
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    padding: 20,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  tabsRow: { flexDirection: "row", alignItems: "center", marginBottom: 20 },
+  activeTab: {
+    backgroundColor: "#F6FA97",
+    paddingHorizontal: 15,
+    paddingVertical: 6,
+    borderRadius: 20,
+    marginLeft: 10,
+  },
+  activeTabText: { color: "black", fontSize: 14, fontWeight: "bold" },
+  tab: {
+    backgroundColor: "#F2F2F2",
+    paddingHorizontal: 15,
+    paddingVertical: 6,
+    borderRadius: 20,
+    marginLeft: 10,
+  },
+  tabText: { color: "gray", fontSize: 14 },
+  sectionTitle: { fontWeight: "bold", marginVertical: 15, fontSize: 16 },
+  messageRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 10,
+  },
+  msgImg: { width: 50, height: 50, borderRadius: 25, marginRight: 15 },
+  msgName: { fontWeight: "bold", fontSize: 14 },
+  msgText: { fontSize: 12, color: "gray" },
+  msgTime: { fontSize: 12, color: "gray" },
+  fab: {
+    width: 55,
+    height: 55,
+    backgroundColor: "#6C63FF",
+    borderRadius: 30,
+    position: "absolute",
+    bottom: 30,
+    right: 20,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
