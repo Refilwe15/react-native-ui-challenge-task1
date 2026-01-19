@@ -1,50 +1,80 @@
-# Welcome to your Expo app 👋
+## Project Overview 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
 
-1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+## UI (React Native)
 
-2. Start the app
+A **React Native (Expo)** mobile UI project that recreates a modern chat screen.
+This project was built as a UI mimic , focusing on layout, styling, and component structure.
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🛠 Tech Stack
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+* **React Native**
+* **Expo**
+* **TypeScript**
+* **expo-linear-gradient**
+* **@expo/vector-icons**
 
-## Get a fresh project
+---
 
-When you're ready, run:
+
+
+
+
+
+##  Required Packages
+
+Make sure these are installed:
 
 ```bash
-npm run reset-project
+expo install expo-linear-gradient
+expo install @expo/vector-icons
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## How To Run The App
 
-To learn more about developing your project with Expo, look at the following resources:
+Step 1 : Install Dependencies
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- ``npm install``
 
-## Join the community
+Step 2 : Run App
 
-Join our community of developers creating universal apps.
+- ``npm start``
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Step 3 : 
+
+- scan the QR code on your android device
+
+##  Purpose of the Project
+
+* Practice **React Native UI layouts**
+* Improve **TypeScript + Expo** skills
+* Learn **gradient backgrounds**
+* Build reusable UI components
+* Mimic real-world mobile app designs
+
+
+##  Key Features
+
+
+* Responsive layout
+* Clean component separation
+* Expo-friendly setup
+
+
+## Landing Page 
+
+[Landing Page] (assets/images/landingScreen.png)
+
+
+
+
+
+
+
